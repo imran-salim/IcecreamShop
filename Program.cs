@@ -3,10 +3,11 @@ using IcecreamShop.Db;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("Icecreams") ?? "Data Source=Icecreams.db";
 
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddDbContext<IcecreamDb>(options => options.UseInMemoryDatabase("IcecreamDb"));
+builder.Services.AddSqlite<IcecreamDb>(connectionString);
 
 builder.Services.AddSwaggerGen(c => {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "IcecreamShop API", Description = "Your favourite dessert", Version = "v1" });
