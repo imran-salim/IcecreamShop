@@ -1,6 +1,6 @@
 # Icecream Shop API
 
-An ASP.NET Core Minimal API
+An ASP.NET Core Minimal API that uses SQLite
 
 ## Usage
 Run the following command in your command line:
